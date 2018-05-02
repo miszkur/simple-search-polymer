@@ -16,7 +16,6 @@ before_script:
 - bower install
 script:
 - xvfb-run wct --skip-plugin sauce
-- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then wct --skip-plugin local; fi
 env:
   global:
     secure: BHomXMxUOc36U3VqXGYI6PGyVKQJAbXv9f6WWUrUDfsR8/3fX9r9m1ACWjACIojVa0Ik9f5LNBuKhbETFpx9GWZAuONNoUKk/ChfG8vyV2k5CTtYP/G2bHL15e/VbNbusH0KRkJNEDGiEdnGYeG6VkYhp3zcAqLdYHpq2IXgTEFrB2gh+VnsRJzKHi37cgcuz/X2P/XwvOSPczIFHuA6kHjSEYx5Oiz28b2K2vcW6gSdrD2Gwo/Oezm8oo9Das8cfj5n5Sut32moa5rJ6lg8r1kqH67jN85GDND+ySFO9a1QftcLWsTo2TxNjae7LYgbi64hwVctCZe5hxChevNmLWaXGLyBqSFIqNFcjmV9wKbCqkcM9Y+ppyp5aqPtNFIk4uG5vBPrgzamgD+PixR7Yh2pEQYpgQJPKM+zf4Q28fdSjLdnX2hGG9syLf7OE6L2fA6j8SWQ/U+z53/eA1DbdwPaRkQQF1QHGVP0a+VP9qa585cVxUsocye9mhkLbybSXrfG0L9gC0wtDHbMndKcY31JMK3xc+q92bIEuH2EPcqM5UGIF6a6jdb8EJjHAbmobGFJoBK/utTWUdRK2vnimH4OjEoubk1JOnkF+zOmHoeQ7dUdw+/a/JqruNvNP678BEa1Rua4m5Pijt5oaAZnfY2EQ38OMLJj4vT2MIVC5YI=

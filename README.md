@@ -25,8 +25,7 @@ https://agnieszka-miszkurka.github.io/simple-search-polymer/demo/
 
 ### Styling
 The following custom properties and mixins are available for styling:
-Custom property | Description | Default
 
-----------------------------|--------------------------------------------|----------
-
-`--search-primary-color` | The color of the buttons | `#303F9F`
+| Custom property | Description | Default |
+|----------------------------|--------------------------------------------|----------|
+|`--search-primary-color` | The color of the buttons | `#303F9F`|

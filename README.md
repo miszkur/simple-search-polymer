@@ -17,11 +17,11 @@ To show the search
 
 ### Documentation Page
 
-http://bstavroulakis.github.io/simple-search/components/simple-search/
+in progress..
 
 ### Demo Page
 
-http://bstavroulakis.github.io/simple-search/components/simple-search/demo/
+https://agnieszka-miszkurka.github.io/simple-search-polymer/demo/
 
 ### Styling
 The following custom properties and mixins are available for styling:

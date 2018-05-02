@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>unit tests</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1,
+        user-scalable=yes">
+    <script src="../components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../components/web-component-tester/browser.js"></script>
+    <link rel="import" href="../simple-search.html">
+</head>
+<body>
+    <test-fixture id="simple-search">
+        <template>
+            <simple-search static-open></simple-search>
+        </template>
+    </test-fixture>
+    <script>
+        suite("simple-search static-open", function () {
+            let element;
+            setup(function () {
+               element = fixture("simple-search")
+            });
+            test("search area appearing in static open", function () {
+                assert.equal(element.isOpen, true);
+            });
+            test("search event triggered", function (done) {
+                element.addEventListener("search", function (e) {
+                    assert.equal(e.detail,"hello");
+                    done();
+                });
+                element.$.searchInput.value = "hello";
+                element.$$(".trigger-search paper-icon-button").click();
+            });
+        })
+    </script>
+</body>
+</html>

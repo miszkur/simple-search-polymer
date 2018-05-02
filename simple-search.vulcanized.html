@@ -1,0 +1,124 @@
+<html><head><meta charset="UTF-8"><!--
+### General Info `<simple-search>`
+`<simple-search>` shows a search input area on your page.
+To use, insert `<simple-search>` in the body:
+    <body>
+      <simple-search></simple-search>
+Example:
+To show the search
+```
+    <body>
+      <simple-search static-open></simple-search>
+```
+### Documentation Page
+https://agnieszka-miszkurka.github.io/simple-search-polymer/
+### Demo Page
+https://agnieszka-miszkurka.github.io/simple-search-polymer/demo/
+### Styling
+The following custom properties and mixins are available for styling:
+Custom property | Description | Default
+----------------------------|--------------------------------------------|----------
+`--search-primary-color` | The color of the buttons | `#303F9F`
+-->
+
+</head><body><div hidden="" by-vulcanize=""><link rel="import" href="components/paper-input/paper-input.html"><link rel="import" href="components/iron-icons/iron-icons.html"><link rel="import" href="components/paper-icon-button/paper-icon-button.html"><link rel="import" href="components/iron-a11y-keys/iron-a11y-keys.html"></div><dom-module id="simple-search">
+    <template>
+        <style>
+            .flex-horizontal {
+                @apply(--layout-horizontal);
+            }
+            .flexchild {
+                @apply(--layout-flex);
+            }
+            .trigger-close, .trigger-search, .input-area {
+                display: none;
+            }
+            .opened .trigger-search, .opened .input-area, .opened .trigger-close {
+                display: block;
+            }
+            .opened .trigger-open{
+                display: none;
+            }
+            div, .trigger-search{
+                color: var(--search-primary-color, #303F9F);
+            }
+        </style>
+        <iron-a11y-keys target="{{searchInput}}" keys="enter" on-keys-pressed="searchAction"></iron-a11y-keys>
+        <div class$="{{_toggleClass}}">
+            <div class="flex-horizontal">
+                <div>
+                    <template is="dom-if" if="{{!staticOpen}}">
+                        <div class="trigger-open">
+                            <paper-icon-button on-tap="_toggle" icon="icons:search"></paper-icon-button>
+                        </div>
+                        <div class="trigger-close">
+                            <paper-icon-button on-tap="_toggle" icon="close"></paper-icon-button>
+                        </div>
+                    </template>
+                </div>
+                <div class="input-area flexchild">
+                    <paper-input id="searchInput" no-label-float="" placeholder="Search"></paper-input>
+                </div>
+                <div class="trigger-search">
+                    <paper-icon-button on-tap="searchAction" icon="icons:search"></paper-icon-button>
+                </div>
+            </div>
+        </div>
+
+    </template>
+</dom-module>
+
+<script>
+    HTMLImports.whenReady(function () {
+        Polymer({
+            is: 'simple-search',
+            properties: {
+                isOpen: {
+                    type: Boolean,
+                    value: false,
+                    observer: "_isOpenChanged"
+                },
+                /** If this is true the search area will always show. Can be set with the static-open attribute. */
+                staticOpen: {
+                    type: Boolean,
+                    value: false
+                },
+                /** The class once the state isOpen is set to true. */
+                _toggleClass: {
+                    type: String,
+                    value: ""
+                }
+            },
+            /**
+             * Toggles the search area
+             *
+             * @return {void} No return parameter.
+             */
+            _toggle: function () {
+                this.set("isOpen", !this.isOpen);
+                if (this.isOpen) {
+                    this.$$("#searchInput").value = "";
+                    this.$$("#searchInput").focus();
+                }
+            },
+            _isOpenChanged: function () {
+                this._toggleClass = "";
+                if (this.isOpen) {
+                    this._toggleClass = "opened";
+                }
+            },
+            /**
+             * Fires the search event
+             *
+             * @return {void} No return parameter.
+             */
+            searchAction: function () {
+                this.fire("search", this.$$("#searchInput").value);
+            },
+            ready: function () {
+                this.isOpen = this.staticOpen;
+            }
+        })
+    })
+</script>
+</body></html>

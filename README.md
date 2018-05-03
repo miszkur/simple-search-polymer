@@ -17,15 +17,16 @@ To show the search
 
 ### Documentation Page
 
-in progress..
+http://bstavroulakis.github.io/simple-search/components/simple-search/
 
 ### Demo Page
 
-https://agnieszka-miszkurka.github.io/simple-search-polymer/demo/
+http://bstavroulakis.github.io/simple-search/components/simple-search/demo/
 
 ### Styling
 The following custom properties and mixins are available for styling:
+Custom property | Description | Default
 
-| Custom property | Description | Default |
-|----------------------------|--------------------------------------------|----------|
-|`--search-primary-color` | The color of the buttons | `#303F9F`|
+----------------------------|--------------------------------------------|----------
+
+`--search-primary-color` | The color of the buttons | `#303F9F`

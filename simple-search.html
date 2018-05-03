@@ -21,10 +21,16 @@ https://agnieszka-miszkurka.github.io/simple-search-polymer/
 https://agnieszka-miszkurka.github.io/simple-search-polymer/demo/
 ### Styling
 The following custom properties and mixins are available for styling:
+<<<<<<< HEAD
+|Custom property | Description | Default|
+|----------------------------|--------------------------------------------|----------|
+|`--search-primary-color` | The color of the buttons | `#303F9F`|
+=======
 
 Custom property | Description | Default
 ----------------|-------------|----------
 `--search-primary-color` | The color of the buttons | `#303F9F`
+>>>>>>> 4816a448e4e590be76c81d18a04ed2831378f3d0
 -->
 
 <dom-module id="simple-search">
@@ -84,23 +90,16 @@ Custom property | Description | Default
                     value: false,
                     observer: "_isOpenChanged"
                 },
-                /** If this is true the search area will always show. Can be set with the static-open attribute. */
                 staticOpen: {
                     type: Boolean,
                     value: false
                 },
-                /** The class once the state isOpen is set to true. */
-                _toggleClass: {
+               _toggleClass: {
                     type: String,
                     value: ""
                 }
             },
-            /**
-             * Toggles the search area
-             *
-             * @return {void} No return parameter.
-             */
-            _toggle: function () {
+              _toggle: function () {
                 this.set("isOpen", !this.isOpen);
                 if (this.isOpen) {
                     this.$$("#searchInput").value = "";
@@ -113,11 +112,6 @@ Custom property | Description | Default
                     this._toggleClass = "opened";
                 }
             },
-            /**
-             * Fires the search event
-             *
-             * @return {void} No return parameter.
-             */
             searchAction: function () {
                 this.fire("search", this.$$("#searchInput").value);
             },
